@@ -1,0 +1,18 @@
+﻿@page "/moretries"
+
+<h3>Flere forsøg!</h3>
+
+@inject IDialogService DialogService
+
+
+<MudButton @onclick="OpenDialog" Variant="Variant.Filled" Color="Color.Primary">
+    Dette er en simpel dialog boks
+</MudButton>
+@code {
+
+    private void OpenDialog()
+    {
+		var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<Dialog>("simpel dialogboks!", options); //<Dialog> points to my component: Components/Dialog.razor
+    }
+}
